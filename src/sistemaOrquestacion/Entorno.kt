@@ -9,11 +9,15 @@ open class Entorno(val nombre: String, val region: String) {
     // Funcion ya definida porque las tres clases únicamente se encargan de añadir a la lista los artefactos de la misma manera
     fun desplegarArtefacto(artefacto: Artefacto) {
         listaArtefactos.add(artefacto)
+        println("[OK] Despliegue exitoso de ${artefacto.nombre} (${artefacto.tipo.nombre}) [HASH-${artefacto.hash}] en $nombre")
     }
 }
 
-class ClusterKubernetes(nombre: String, region: String, nodos: Int, version: String): Entorno(nombre, region)
+// Clase hija de Entorno con atributos adicionales: nodos y version
+class ClusterKubernetes(nombre: String, region: String, val nodos: Int, val version: String): Entorno(nombre, region)
 
-class ServerlessLambda(nombre: String, region: String, memoria: Double, runtime: Double): Entorno(nombre, region)
+// Clase hija de Entorno con atributos adicionales: memoria [MB] y runtime
+class ServerlessLambda(nombre: String, region: String, val memoria: Double, val runtime: Double): Entorno(nombre, region)
 
-class InstanciaVirtual(nombre: String, region: String, arquitectura: String, so: String): Entorno(nombre, region)
+// Clase hija de Entorno con atributos adicionales: arquitectura y so (Sistema Operativo)
+class InstanciaVirtual(nombre: String, region: String, val arquitectura: String, val so: String): Entorno(nombre, region)
