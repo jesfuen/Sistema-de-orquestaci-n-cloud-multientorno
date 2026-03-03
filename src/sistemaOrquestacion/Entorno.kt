@@ -1,6 +1,8 @@
 package sistemaOrquestacion
 
-// Open class porque las clases hijas no necesitan definir el funcionamiento de desplegarArtefacto()
+// Abstract class ya que no se debe instanciar un objeto de tipo Entorno
+// Abstract val tipo para que cada clase defina a que tipo pertenece
+// Override de toString para mostrar un mensaje personalizado de cada tipo de entorno
 abstract class Entorno(val nombre: String, val region: String) {
 
     // Lista mutable para añadir artefactos para cada entorno

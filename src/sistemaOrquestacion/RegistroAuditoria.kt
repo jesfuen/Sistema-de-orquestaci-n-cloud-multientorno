@@ -3,6 +3,8 @@ package sistemaOrquestacion
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+// Se utiliza un object (singleton) porque el registro es único, público y accesible
+// desde cualquier lugar del programa sin pertenecer a ningún orquestador concreto.
 object RegistroAuditoria {
 
     val eventos: MutableList<String> = mutableListOf()

@@ -1,10 +1,11 @@
 package sistemaOrquestacion
 
-interface CompatibleConK8s
-interface CompatibleConLambdas
-interface CompatibleConVMs
+// Uso de interfaces para que los Artefactos tengan una relacion concreta con los Entornos
+interface CompatibleConK8s // Compatibilidad con ClusterKubernetes
+interface CompatibleConLambdas // Compatibilidad con ServerlessLambda
+interface CompatibleConVMs // Compatibilidad con InstanciaVirtual
 
-// Se ha utilizado una data class ya que unicamente tiene atributos, no implementa ningun tipo de funcionalidad
+// Se ha utilizado una clase abtracta donde cada subclase debe especificar su tipo y no se debe poder instanciar directamente
 abstract class Artefacto(val nombre: String, val hash: Int) {
     abstract val tipo: String
     override fun toString(): String = "$nombre ($tipo) [HASH-$hash]"
